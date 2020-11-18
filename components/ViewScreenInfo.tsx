@@ -11,7 +11,7 @@ export default class ViewScreenInfo extends React.Component {
         return (
             <View style={{backgroundColor: '#000000', alignSelf: 'flex-start' }}>
                 <View style={{ flex: 1, backgroundColor: "red" }}>
-                    <Text style={{ fontSize: 20, color: "#fff" }}>Item number 00</Text>
+                    <Text style={{ fontSize: 20, color: "#fff" }}>Item number 1</Text>
                 </View>
                 <View style={{ flex: 1, backgroundColor: "blue" }}>
                     <Text style={{ fontSize: 20, color: "#fff" }}>Item number 2</Text>

@@ -21,7 +21,9 @@ export default class ViewScreenInfo extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff'
+        backgroundColor: '#fff',
+        alignSelf: 'stretch',
+        alignItems: 'center',
     },
     headerContainer: {
         marginTop: 50,

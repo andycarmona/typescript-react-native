@@ -1,46 +1,39 @@
 import * as WebBrowser from 'expo-web-browser';
 import React from 'react';
-import { StyleSheet, TouchableOpacity } from 'react-native';
-
-import Colors from '../constants/Colors';
-import { MonoText } from './StyledText';
+import { StyleSheet } from 'react-native';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+  listenOrientationChange as loc,
+  removeOrientationListener as rol
+} from 'react-native-responsive-screen';
 import { Text, View } from './Themed';
 
-export default function EditScreenInfo({ path }: { path: string }) {
-  return (
-    <View>
-      <View style={styles.getStartedContainer}>
-        <Text
-          style={styles.getStartedText}
-          lightColor="rgba(0,0,0,0.8)"
-          darkColor="rgba(255,255,255,0.8)">
-          Open up the code for this screen:
-        </Text>
+type EditProps = {
+  path: String
+}
 
-        <View
-          style={[styles.codeHighlightContainer, styles.homeScreenFilename]}
-          darkColor="rgba(255,255,255,0.05)"
-          lightColor="rgba(0,0,0,0.05)">
-          <MonoText>{path}</MonoText>
+export default class EditScreenInfo extends React.Component<EditProps> {
+
+  componentDidMount() {
+    loc(this);
+  }
+
+  componentWillUnMount() {
+    rol();
+  }
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <View style={styles.textWrapper}>
+          <Text style={styles.text}>This box is always of 84.5% width and 17% height.</Text>
+          <Text style={styles.text}>Test it by running this example repo in phones/
+          emulators with screens of various dimensions and pixel per inch (ppi).</Text>
         </View>
-
-        <Text
-          style={styles.getStartedText}
-          lightColor="rgba(0,0,0,0.8)"
-          darkColor="rgba(255,255,255,0.8)">
-          Change any of the text, save the file, and your app will automatically update.
-        </Text>
       </View>
-
-      <View style={styles.helpContainer}>
-        <TouchableOpacity onPress={handleHelpPress} style={styles.helpLink}>
-          <Text style={styles.helpLinkText} lightColor={Colors.light.tint}>
-            Tap here if your app doesn't automatically update after making changes
-          </Text>
-        </TouchableOpacity>
-      </View>
-    </View>
-  );
+    );
+  }
 }
 
 function handleHelpPress() {
@@ -52,7 +45,9 @@ function handleHelpPress() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'gray',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   developmentModeText: {
     marginBottom: 20,
@@ -104,5 +99,20 @@ const styles = StyleSheet.create({
   },
   helpLinkText: {
     textAlign: 'center',
+  },
+  responsiveBox: {
+    width: wp('84.5%'),
+    height: hp('17%'),
+    borderWidth: 2,
+    borderColor: 'orange',
+    flexDirection: 'column',
+    justifyContent: 'space-around'
+  },
+  text: {
+    color: 'black'
+  },
+  textWrapper: {
+    height: hp('70%'), // 70% of height device screen
+    width: wp('80%')   // 80% of width device screen
   },
 });

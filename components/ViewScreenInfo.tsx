@@ -1,8 +1,6 @@
 import * as WebBrowser from "expo-web-browser";
 import React from "react";
 import { StyleSheet, Dimensions, ImageBackground, ActivityIndicator, ScrollView } from "react-native";
-import Colors from "../constants/Colors";
-import { MonoText } from "./StyledText";
 import { Text, View } from "./Themed";
 import WavySvg from '../components/WaveSvg';
 const image = { uri: "https://images.pexels.com/photos/89432/pexels-photo-89432.jpeg?h=350&dpr=2&auto=compress&cs=tinysrgb" };

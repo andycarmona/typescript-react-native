@@ -4,7 +4,7 @@ import Svg, { Path } from 'react-native-svg';
 
 type EditProps = {
     customStyles: Object
-  }
+}
 
 export default class WaveSvg extends React.Component<EditProps> {
     render() {
@@ -12,8 +12,8 @@ export default class WaveSvg extends React.Component<EditProps> {
             <View style={this.props.customStyles}>
                 <View style={{ backgroundColor: '#5000ca', height: 160 }}>
                     <Svg
-                        height="60%"
                         width="100%"
+                        height="60%"
                         viewBox="0 0 1440 320"
                         style={{ position: 'absolute', top: 130 }}
                     >
